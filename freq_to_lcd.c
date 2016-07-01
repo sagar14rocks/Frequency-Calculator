@@ -203,33 +203,12 @@ ISR(TIMER1_CAPT_vect)
 							last_val=first_val;
 							_delay_ms(1000);
 				}
-	//	TCCR1B &= ~(1<<ICES1); //Capture now on falling edge
+	
 
 
 		overflow_counter = 0;
 	}
-	/*else
-	{
-		falling_edge = ICR1;
-		TCCR1B |= (1<<ICES1);//Capture now on rising edge
-		pulse_width =falling_edge - rising_edge + TOP*overflow_counter;
-		freq=clock/((TOP-pulse_width)*2);
-		ipart=(int)freq;
-		//ftoa(freq,str,2);
-		lcdcommand(0x01);
-		lcdcommand(0x80);
-		lcd_print("  frequency=");
-		lcdcommand(0xc0);
-		send_data(ipart);
-		//lcd_print(str);
-		lcd_print("Hz");
-		_delay_ms(1000);
-		//lcdcommand(0x01);
-		//freq=1/delay;
-		//Test to see if correct pulse width being calculated
-		//if pulse width is greater than 40us than PD4 goes high otherwise PD5 IS HIGH
-
-	}*/
+	
 }
 
 
@@ -270,7 +249,7 @@ int main(void)
 	lcd_init();
 		//lcd_gotoxy(1,1);
 		lcdcommand(0x80);
-		lcd_print("SAPCON");
+		lcd_print("Hello World");
 		_delay_ms(1000);
 		lcdcommand(0x01);
 		lcdcommand(0x80);
